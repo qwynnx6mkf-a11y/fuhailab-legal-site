@@ -1,13 +1,198 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>隐私政策 Privacy Policy</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>隐私政策 | 食时令</title>
+  <meta name="description" content="食时令的隐私政策，了解我们如何收集、使用和保护你的数据。" />
+  <style>
+    /* 沿用基础变量定义 */
+    :root {
+      --primary-color: #2F5A4B;
+      --primary-hover: #1E3F33;
+      --bg-color: #F9FAFB;
+      --card-bg: #FFFFFF;
+      --text-main: #111827;
+      --text-muted: #4B5563; /* 加深了一点点以适合长文本阅读 */
+      --border-color: #E5E7EB;
+      --radius-lg: 16px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--primary-color); text-decoration: none; transition: color 0.2s ease; }
+    a:hover { color: var(--primary-hover); text-decoration: underline; }
+
+    /* 页面容器 */
+    .page-shell {
+      max-width: 800px; /* 法务页面稍窄一些，提升阅读体验 */
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* 顶部导航 */
+    .nav {
+      display: flex;
+      gap: 24px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border-color);
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+    .nav a { color: var(--text-muted); text-decoration: none; }
+    .nav a:hover { color: var(--primary-color); }
+    .nav a.active { color: var(--text-main); font-weight: 600; }
+
+    /* 返回组件 */
+    .back-link {
+      display: inline-block;
+      margin: 32px 0 16px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+    .back-link::before { content: "←"; margin-right: 6px; }
+    .back-link:hover { color: var(--primary-color); text-decoration: none; }
+
+    /* 法务内容容器 */
+    .legal-content {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      margin-bottom: 64px;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    }
+
+    /* 长文本排版 (Prose) */
+    .prose h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+    }
+    
+    .prose .update-date {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      display: block;
+    }
+
+    .prose h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 40px;
+      margin-bottom: 16px;
+      color: var(--text-main);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+    }
+
+    .prose p {
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      line-height: 1.8;
+    }
+
+    .prose ul {
+      margin-bottom: 16px;
+      padding-left: 24px;
+      color: var(--text-muted);
+    }
+
+    .prose li {
+      margin-bottom: 8px;
+      line-height: 1.8;
+    }
+
+    .prose strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    /* 页脚 */
+    .footer {
+      margin-top: auto;
+      padding: 32px 0;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .legal-content { padding: 32px 24px; }
+      .prose h1 { font-size: 1.75rem; }
+    }
+  </style>
 </head>
 <body>
-  <h1>隐私政策 / Privacy Policy</h1>
-  <p>这里后续放正式隐私政策内容。</p>
-  <p><a href="/">返回首页</a></p>
+  <main class="page-shell">
+    <nav class="nav" aria-label="Primary">
+      <a href="/">首页</a>
+      <a href="/privacy/" class="active">隐私政策</a>
+      <a href="/terms/">用户协议</a>
+      <a href="/support/">支持中心</a>
+    </nav>
+
+    <a href="/" class="back-link">返回法务与支持中心</a>
+
+    <article class="legal-content prose">
+      <h1>隐私政策</h1>
+      <span class="update-date">最后更新日期：2026 年 [填写月份] 月 [填写日期] 日</span>
+
+      <p>欢迎使用「食时令」（以下简称“本产品”）。我们深知个人隐私对你的重要性，并致力于保护你的数据安全。本隐私政策旨在向你清楚地解释我们在你使用移动应用、提醒能力及订阅服务时，收集哪些信息、如何处理这些信息，以及你所拥有的权利。</p>
+
+      <h2>1. 我们如何收集和处理信息</h2>
+      <p>食时令的设计理念是**尽可能少地收集个人数据**，我们将数据控制权交还给你：</p>
+      <ul>
+        <li><strong>本地数据存储：</strong> 你的节律设置、饮食记录及日常提醒数据主要存储在你的设备本地。我们无法也不会在服务器上直接读取这些敏感的个人生活数据。</li>
+        <li><strong>云端同步与备份（如适用）：</strong> 如果你启用了云同步功能，相关数据将被加密传输并保存在受保护的云端服务器上，仅用于你在多设备间的无缝体验。</li>
+        <li><strong>订阅状态：</strong> 为了验证你的购买并提供高级服务，我们会处理与订阅状态相关的匿名化凭证。我们不会直接处理或存储你的支付卡信息（这些信息由应用商店负责处理）。</li>
+        <li><strong>分析数据与崩溃诊断：</strong> 为了持续优化产品体验，在获得你同意的前提下，我们会收集匿名的应用使用数据（如功能点击率）和崩溃日志。这些数据不包含任何可识别你身份的个人信息。</li>
+      </ul>
+
+      <h2>2. 数据的共享与披露</h2>
+      <p>我们**承诺绝不出售**你的个人数据。我们仅在以下必要情况下共享数据：</p>
+      <ul>
+        <li>为提供基础服务而必需的第三方服务商（如云服务器提供商、崩溃分析平台），且他们均受严格的保密协议约束。</li>
+        <li>根据法律法规、法院命令或政府监管要求，必须提供信息的情况。</li>
+      </ul>
+
+      <h2>3. 你的权利与数据管理</h2>
+      <p>你对自己的数据拥有完全的控制权：</p>
+      <ul>
+        <li><strong>数据访问与导出：</strong> 你可以随时在应用内查看你留存的所有设置和记录。</li>
+        <li><strong>数据删除：</strong> 你可以通过「设置 - 数据管理」彻底清除设备本地的数据。如果你希望注销账号（如已注册云端服务）并删除云端数据，请通过应用内相关功能操作，或联系我们的支持团队。</li>
+        <li><strong>撤回同意：</strong> 你可以随时在设备的系统设置中关闭诊断数据的分享或推送通知权限。</li>
+      </ul>
+
+      <h2>4. 政策的变更</h2>
+      <p>我们可能会适时对本隐私政策进行修订。当条款发生重大变更时，我们会在应用内或通过其他显着方式通知你。继续使用本产品即表示你同意更新后的隐私政策。</p>
+
+      <h2>5. 联系我们</h2>
+      <p>如果你对本隐私政策有任何疑问、意见或建议，或者需要进行数据清理与管理，请随时与我们联系：</p>
+      <p><strong>支持邮箱：</strong> <a href="mailto:voiceshadow@fuhailab.com">voiceshadow@fuhailab.com</a></p>
+      <p>我们将尽快审核所涉问题，并在收到你的请求后及时予以回复。</p>
+    </article>
+
+    <footer class="footer">
+      <p>食时令提供的是生活方式与节律建议，不构成医疗建议，也不能替代专业诊疗。</p>
+      <p style="margin-top: 8px;">&copy; 2026 Fuhai Lab. 保留所有权利。</p>
+    </footer>
+  </main>
 </body>
 </html>
