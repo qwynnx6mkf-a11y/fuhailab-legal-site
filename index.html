@@ -4,304 +4,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>食时令 | 法务与支持中心</title>
-  <meta name="description" content="食时令的隐私政策、用户协议与支持中心。" />
-  <style>
-    /* 基础变量定义：自然、平静的色调 */
-    :root {
-      --primary-color: #2F5A4B;
-      /* 森绿色 */
-      --primary-hover: #1E3F33;
-      --bg-color: #F9FAFB;
-      --card-bg: #FFFFFF;
-      --text-main: #111827;
-      --text-muted: #6B7280;
-      --border-color: #E5E7EB;
-      --radius-lg: 16px;
-      --radius-md: 12px;
-      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    }
-
-    /* 重置与全局样式 */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: var(--primary-color);
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-
-    a:hover {
-      color: var(--primary-hover);
-    }
-
-    /* 页面容器 */
-    .page-shell {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 24px;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    /* 顶部导航 */
-    .nav {
-      display: flex;
-      gap: 24px;
-      padding: 24px 0;
-      border-bottom: 1px solid var(--border-color);
-      font-weight: 500;
-      font-size: 0.95rem;
-    }
-
-    .nav a {
-      color: var(--text-muted);
-    }
-
-    .nav a:first-child {
-      color: var(--text-main);
-      font-weight: 600;
-    }
-
-    .nav a:hover {
-      color: var(--primary-color);
-    }
-
-    /* Hero 区 */
-    .hero {
-      padding: 64px 0 48px;
-      text-align: center;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--primary-color);
-      background-color: rgba(47, 90, 75, 0.08);
-      padding: 6px 16px;
-      border-radius: 20px;
-      margin-bottom: 24px;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-    }
-
-    .hero h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: var(--text-main);
-      letter-spacing: -0.02em;
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      max-width: 680px;
-      margin: 0 auto 48px;
-      line-height: 1.8;
-    }
-
-    /* Hero 底部信息卡片 */
-    .hero-meta {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .meta-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      padding: 16px 24px;
-      border-radius: var(--radius-md);
-      text-align: left;
-      min-width: 200px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .meta-card strong {
-      display: block;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .meta-card span {
-      font-size: 1rem;
-      font-weight: 500;
-    }
-
-    /* 栅格内容区 */
-    .section-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-      padding-bottom: 64px;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-lg);
-      padding: 32px;
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-      border-color: #D1D5DB;
-    }
-
-    .card h2 {
-      font-size: 1.5rem;
-      margin-bottom: 16px;
-      color: var(--text-main);
-    }
-
-    .card p {
-      color: var(--text-muted);
-      flex-grow: 1;
-      margin-bottom: 24px;
-    }
-
-    /* 卡片内的链接按钮化 */
-    .card a {
-      display: inline-flex;
-      align-items: center;
-      font-weight: 500;
-    }
-
-    .card a::after {
-      content: "→";
-      margin-left: 6px;
-      transition: transform 0.2s ease;
-    }
-
-    .card a:hover::after {
-      transform: translateX(4px);
-    }
-
-    /* 突出显示支持卡片 */
-    .support-highlight {
-      background: linear-gradient(180deg, #FFFFFF 0%, #F0F7F4 100%);
-      border: 1px solid #D1E5DE;
-    }
-
-    /* 页脚 */
-    .footer {
-      margin-top: auto;
-      padding: 32px 0;
-      border-top: 1px solid var(--border-color);
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-    }
-
-    /* 响应式设计 (移动端适配) */
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .hero-meta {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .meta-card {
-        text-align: center;
-      }
-
-      .nav {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 16px;
-      }
-    }
-  </style>
+  <title>Fuhai Lab | 伏海实验室</title>
+  <meta name="description" content="Fuhai Lab (伏海实验室) 官方网站，探索数字健康与生活方式的创新产品。" />
+  <link rel="stylesheet" href="/css/global.css">
 </head>
 
-<body>
+<body class="fuhai-hero">
   <main class="page-shell">
-    <nav class="nav" aria-label="Primary">
-      <a href="/">食时令首页</a>
-      <a href="/privacy/">隐私政策</a>
-      <a href="/terms/">用户协议</a>
-      <a href="/support/">支持中心</a>
+    <nav class="fuhai-nav" aria-label="Primary">
+      <div class="logo">Fuhai Lab</div>
+      <div class="links">
+        <a href="#products">产品</a>
+        <a href="mailto:voiceshadow@fuhailab.com">联系我们</a>
+      </div>
     </nav>
 
     <section class="hero">
-      <span class="eyebrow">Shi Shi Ling Legal Center</span>
-      <h1>食时令法务与支持中心</h1>
+      <span class="eyebrow">Innovating Digital Lifestyles</span>
+      <h1>伏海实验室</h1>
       <p>
-        这里集中提供食时令的隐私政策、用户协议和用户支持信息，方便你在使用、订阅、提醒、数据管理和联系支持时快速找到关键信息。
+        致力于探索科技与日常生活的完美契合。我们打造简洁、优美的数字工具，帮助你更好地管理时间、健康与生活节律，找回生活的掌控感。
       </p>
 
       <div class="hero-meta">
         <div class="meta-card">
-          <strong>产品名称</strong>
-          <span>食时令 / Shi Shi Ling</span>
+          <strong>使命</strong>
+          <span>用技术重塑健康生活习惯</span>
         </div>
         <div class="meta-card">
-          <strong>支持邮箱</strong>
+          <strong>支持</strong>
           <span><a href="mailto:voiceshadow@fuhailab.com">voiceshadow@fuhailab.com</a></span>
-        </div>
-        <div class="meta-card">
-          <strong>适用范围</strong>
-          <span>移动应用、提醒与订阅服务</span>
         </div>
       </div>
     </section>
 
-    <section class="section-grid">
+    <section id="products" class="section-grid" style="margin-top: 32px;">
       <article class="card">
-        <h2>隐私政策</h2>
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+            <h2 style="margin-bottom: 0;">食时令 (Shi Shi Ling)</h2>
+            <span style="font-size: 0.8rem; background: var(--border-color); padding: 4px 8px; border-radius: 12px; font-weight: 500;">已上线</span>
+        </div>
         <p>
-          说明我们收集哪些信息、如何处理本地数据、订阅状态、分析数据与崩溃诊断信息，以及你可以如何管理与删除数据。
+          一款极简的节律与饮食管理工具。通过科学的提醒与数据记录，帮助你养成良好的饮食节律，找回身体的自然平衡。
         </p>
-        <a href="/privacy/">查看隐私政策</a>
+        <a href="/shishiling/">访问食时令法务与支持中心</a>
       </article>
 
-      <article class="card">
-        <h2>用户协议</h2>
+      <article class="card" style="opacity: 0.6; pointer-events: none;">
+        <h2>敬请期待</h2>
         <p>
-          说明产品服务内容、订阅与试用规则、提醒与非医疗声明、用户使用义务，以及服务变更、中止与责任限制条款。
+          更多旨在提升生活质量与工作效率的创新数字产品正在开发中。我们不断探索，为你带来更多可能。
         </p>
-        <a href="/terms/">查看用户协议</a>
-      </article>
-
-      <article class="card support-highlight">
-        <h2>支持中心</h2>
-        <p>
-          获取常见问题说明、恢复购买、提醒故障排查、数据清理说明，以及联系支持团队的方式。
-        </p>
-        <a href="/support/">前往支持中心</a>
+        <a href="#">即将到来</a>
       </article>
     </section>
 
     <footer class="footer">
-      <p>免责声明：食时令提供的是生活方式与节律建议，不构成医疗建议，也不能替代专业诊疗。</p>
+      <p>Fuhai Lab 提供数字生活方式工具，部分产品可能包含健康节律建议，但不构成专业医疗建议。</p>
       <p style="margin-top: 8px;">&copy; 2026 Fuhai Lab. 保留所有权利。</p>
     </footer>
   </main>
