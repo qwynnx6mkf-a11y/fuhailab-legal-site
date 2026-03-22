@@ -1,32 +1,34 @@
 /* css/global.css */
-/* 基础变量定义：Fuhai Lab 官网色调 */
+/* 基础变量定义：Fuhai Lab 官网色调 - 更唯美、现代 */
 :root {
-  --primary-color: #0F172A; /* 深蓝色 */
-  --primary-hover: #1E293B;
-  --bg-color: #F8FAFC;
-  --card-bg: #FFFFFF;
-  --text-main: #0F172A;
-  --text-muted: #64748B;
-  --border-color: #E2E8F0;
-  --radius-lg: 16px;
-  --radius-md: 12px;
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --primary-color: #1a365d; /* 沉静的深海蓝 */
+  --primary-hover: #2a4365;
+  --bg-color: #f8fafc;
+  --bg-gradient: linear-gradient(135deg, #f0f4f8 0%, #ffffff 100%);
+  --card-bg: rgba(255, 255, 255, 0.7); /* 玻璃态背景 */
+  --text-main: #2d3748;
+  --text-muted: #718096;
+  --border-color: rgba(226, 232, 240, 0.8);
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.03), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+  --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-/* 覆盖食时令相关页面的变量 */
+/* 覆盖食时令相关页面的变量 - 保持自然色调，增加通透感 */
 .theme-shishiling {
   --primary-color: #2F5A4B;
   --primary-hover: #1E3F33;
-  --bg-color: #F9FAFB;
-  --card-bg: #FFFFFF;
-  --text-main: #111827;
-  --text-muted: #6B7280;
-  --border-color: #E5E7EB;
-  --radius-lg: 16px;
-  --radius-md: 12px;
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --bg-color: #f7fdfa;
+  --bg-gradient: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --text-main: #1f2937;
+  --text-muted: #6b7280;
+  --border-color: rgba(209, 213, 219, 0.5);
+  --shadow-sm: 0 4px 6px -1px rgba(47, 90, 75, 0.03);
+  --shadow-md: 0 10px 25px -5px rgba(47, 90, 75, 0.05);
+  --shadow-hover: 0 20px 25px -5px rgba(47, 90, 75, 0.08);
 }
 
 /* 重置与全局样式 */
@@ -38,10 +40,12 @@
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
-  background-color: var(--bg-color);
+  background: var(--bg-gradient);
+  background-attachment: fixed;
   color: var(--text-main);
-  line-height: 1.6;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
 }
 
 a {
@@ -67,7 +71,7 @@ a:hover {
   max-width: 800px; /* 法务页面稍窄一些，提升阅读体验 */
 }
 
-/* 顶部导航 */
+/* 顶部导航 - 增加通透感和模糊效果 */
 .nav {
   display: flex;
   gap: 24px;
@@ -75,10 +79,35 @@ a:hover {
   border-bottom: 1px solid var(--border-color);
   font-weight: 500;
   font-size: 0.95rem;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 100;
+  margin: 0 -24px;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .nav a {
   color: var(--text-muted);
+  position: relative;
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.nav a:hover::after, .nav a.active::after {
+  width: 100%;
 }
 
 .nav a:first-child, .nav a.active {
@@ -97,23 +126,35 @@ a:hover {
   align-items: center;
   padding: 24px 0;
   border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 100;
+  margin: 0 -24px;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 .fuhai-nav .logo {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--text-main);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  letter-spacing: -0.03em;
 }
 .fuhai-nav .links {
   display: flex;
-  gap: 24px;
+  gap: 32px;
   font-weight: 500;
   font-size: 0.95rem;
 }
 .fuhai-nav .links a {
   color: var(--text-muted);
+  transition: all 0.3s ease;
 }
 .fuhai-nav .links a:hover {
   color: var(--primary-color);
+  transform: translateY(-1px);
 }
 
 /* 返回组件 */
@@ -127,103 +168,157 @@ a:hover {
 .back-link::before { content: "←"; margin-right: 6px; }
 .back-link:hover { color: var(--primary-color); text-decoration: none; }
 
-/* Hero 区 */
+/* Hero 区 - 增强排版和留白 */
 .hero {
-  padding: 64px 0 48px;
+  padding: 80px 0 64px;
   text-align: center;
+  position: relative;
+}
+
+/* 背景光晕效果 (针对 fuhai-hero) */
+.fuhai-hero .hero::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(42, 105, 172, 0.08) 0%, rgba(255,255,255,0) 70%);
+  z-index: -1;
+  pointer-events: none;
 }
 
 .eyebrow {
   display: inline-block;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--primary-color);
-  background-color: rgba(47, 90, 75, 0.08); /* 这里如果是统一的话，可以改用 var(--primary-color) 和 opacity */
-  padding: 6px 16px;
-  border-radius: 20px;
-  margin-bottom: 24px;
-  letter-spacing: 0.5px;
+  background-color: rgba(47, 90, 75, 0.05);
+  padding: 8px 20px;
+  border-radius: 30px;
+  margin-bottom: 32px;
+  letter-spacing: 1px;
   text-transform: uppercase;
+  border: 1px solid rgba(47, 90, 75, 0.1);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.02);
 }
 .theme-shishiling .eyebrow {
-  background-color: rgba(47, 90, 75, 0.08);
+  background-color: rgba(47, 90, 75, 0.05);
+  border-color: rgba(47, 90, 75, 0.15);
 }
 .fuhai-hero .eyebrow {
-  background-color: rgba(15, 23, 42, 0.08);
+  background-color: rgba(26, 54, 93, 0.04);
+  color: var(--primary-color);
+  border-color: rgba(26, 54, 93, 0.1);
 }
 
-
 .hero h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 20px;
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 24px;
   color: var(--text-main);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  background: linear-gradient(to right, var(--text-main), var(--primary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.theme-shishiling .hero h1 {
+  font-size: 2.8rem;
 }
 
 .hero p {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   color: var(--text-muted);
-  max-width: 680px;
-  margin: 0 auto 48px;
+  max-width: 720px;
+  margin: 0 auto 56px;
   line-height: 1.8;
+  font-weight: 300;
 }
 
 /* Hero 底部信息卡片 */
 .hero-meta {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 24px;
   flex-wrap: wrap;
 }
 
 .meta-card {
   background: var(--card-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--border-color);
-  padding: 16px 24px;
-  border-radius: var(--radius-md);
+  padding: 20px 28px;
+  border-radius: var(--radius-lg);
   text-align: left;
-  min-width: 200px;
+  min-width: 220px;
   box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.meta-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .meta-card strong {
   display: block;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
 }
 
 .meta-card span {
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 500;
+  color: var(--text-main);
 }
 
 /* 栅格内容区 */
 .section-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-  padding-bottom: 64px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  padding-bottom: 80px;
 }
 
 .card {
   background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
-  padding: 32px;
-  transition: all 0.3s ease;
+  padding: 40px;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   display: flex;
   flex-direction: column;
   box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-  border-color: #D1D5DB;
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+  border-color: transparent;
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 .card h2 {
@@ -261,14 +356,16 @@ a:hover {
   border: 1px solid #D1E5DE;
 }
 
-/* 法务内容容器 */
+/* 法务内容容器 - 更柔和的阅读体验 */
 .legal-content {
   background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
-  padding: 48px;
-  margin-bottom: 64px;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  padding: 56px;
+  margin-bottom: 80px;
+  box-shadow: var(--shadow-md);
 }
 
 /* 长文本排版 (Prose) */
@@ -321,17 +418,18 @@ a:hover {
 
 /* 强调声明块 */
 .prose .disclaimer-box {
-  background-color: #FFFBEB;
+  background-color: rgba(254, 243, 199, 0.5); /* #FFFBEB with opacity */
   border-left: 4px solid #F59E0B;
-  padding: 16px 20px;
-  margin: 24px 0;
+  padding: 20px 24px;
+  margin: 32px 0;
   color: #92400E;
-  border-radius: 0 8px 8px 0;
+  border-radius: 0 12px 12px 0;
   font-size: 0.95rem;
+  backdrop-filter: blur(4px);
 }
 
 .prose .disclaimer-box strong {
-  color: #92400E;
+  color: #78350f;
 }
 
 
